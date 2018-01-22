@@ -34,33 +34,6 @@ class CommentBox extends React.Component{
 		.then(data => this.setState({comments: [...this.state.comments, data.comment]}))
 	}
 
-	editComment = (comment) => {
-		let headers = {
-			"Content-Type": 'application/json',
-			"Accept": "application/json"
-		}
-
-		if (comment.werewolf) {
-			comment.author = "Werewolf"
-			comment.text = "Awooooooo!"
-		}
-
-
-		fetch(`http://localhost:3001/api/comments/${comment.id}`, {
-			method: "PUT",
-			headers: headers,
-			body: JSON.stringify({comment})
-		})
-		.then(res => res.json())
-		.then(data => {
-			let newComments = this.state.comments.slice()
-
-			let index = newComments.findIndex(comment => comment['_id'] === data.comment['_id'])
-			newComments[index] = data.comment
-
-			this.setState({comments: newComments})
-		})
-	}
 
 	deleteComment = (commentID) => {
 		let headers = {
@@ -82,7 +55,7 @@ class CommentBox extends React.Component{
 		return(
 			<div>
 				<h2>Comments: </h2>
-				<CommentList data={ this.state.comments } deleteComment={this.deleteComment} editComment={this.editComment}/>
+				<CommentList data={ this.state.comments } deleteComment={this.deleteComment}/>
  				<CommentForm addComment={this.addComment} />
 			</div>
 		)
