@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var Comment = require('./models/comments');
 var bcrypt = require('bcrypt')
 var User = require('./models/users');
+require('dotenv').config()
+
 
 //and create our instances
 var app = express();
@@ -14,7 +16,15 @@ var router = express.Router();
 //set our port to either a predetermined port number if you have set 
 //it up, or 3001
 var port = process.env.API_PORT || 3001;
-mongoose.connect('mongodb://sbal13:fitness@ds151207.mlab.com:51207/mern-practice-sbal13')
+
+
+//Connect Mongoose to target Mongo database
+var username = process.env.DB_USER
+var password = process.env.DB_PASSWORD
+var dbName = process.env.DB_NAME
+mongoose.connect(`mongodb://${username}:${password}${dbName}`)
+//mongodb://sbal13:fitness@ds151207.mlab.com:51207/mern-practice-sbal13
+
 
 //now we should configure the API to use bodyParser and look for 
 //JSON data in the request body

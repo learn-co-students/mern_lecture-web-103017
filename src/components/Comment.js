@@ -2,12 +2,7 @@ import React from 'react'
 import marked from 'marked'
 
 
-const Comment = ({author, children, werewolf, id, editComment, deleteComment}) => {
-
-	const rawMarkup = () => {
-		let rawMarkup = marked(children.toString());
-		return { __html: rawMarkup };
-	}
+const Comment = ({author, text, children, werewolf, id, editComment, deleteComment}) => {
 
 	const handleEdit = (event) => {
 		editComment({author, id, werewolf})
@@ -20,7 +15,7 @@ const Comment = ({author, children, werewolf, id, editComment, deleteComment}) =
 	return (
 		<div>
 			<button onClick={handleEdit}>{author}</button>
-			<span dangerouslySetInnerHTML={ rawMarkup() } />
+			<span>{text}</span>
 			{author === "Werewolf" ? <button onClick={handleDelete}>Stake with silver!</button> : null}
 		</div>
 	)
