@@ -4,13 +4,13 @@ import CommentList from '../components/CommentList'
 
 class CommentBox extends React.Component{
 	state = {
-		comments: []
+		comments: 
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:3001/api/comments')
-		.then(res => res.json())
-		.then(comments => this.setState({comments}))
+		// fetch('http://localhost:3001/api/comments')
+		// .then(res => res.json())
+		// .then(comments => this.setState({comments}))
 	}
 
 	addComment = (comment) => {
