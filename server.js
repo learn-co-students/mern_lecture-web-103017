@@ -49,8 +49,8 @@ app.use((req, res, next) => {
 //now we can set the route path & initialize the API
 router.route('/')
 .get((req, res) => {
-	res.json({message: "Initialized!"});
-});
+	res.json({message: req.headers});
+})
 
 router.route('/login')
 .post((req,res) => {
@@ -96,15 +96,6 @@ router.route('/signup')
 router.route('/comments')
 .get((req, res) => {
 	//find returns an array
-	Comment.find((err, comments) => {
-		 if (err){
-		 	res.send(err);
-		 } else {
-		 	res.json(comments)
-		 }
-	});
-})
-.get((req, res) => {
 	Comment.find((err, comments) => {
 		 if (err){
 		 	res.send(err);
