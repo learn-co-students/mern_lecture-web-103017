@@ -1,5 +1,4 @@
 import React from 'react'
-import marked from 'marked'
 
 
 const Comment = ({author, text, children, werewolf, id, editComment, deleteComment}) => {

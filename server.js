@@ -3,8 +3,8 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var Comment = require('./models/comments');
 var bcrypt = require('bcrypt')
+var Comment = require('./models/comments');
 var User = require('./models/users');
 require('dotenv').config()
 
