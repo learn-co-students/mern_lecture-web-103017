@@ -44,7 +44,6 @@ app.use((req, res, next) => {
 //BEGIN ROUTES/////////
 
 
-
 //END ROUTES/////////
 
 //Use our router configuration when we call /api

@@ -47,7 +47,7 @@ After running `create-react-app` to build out your client, the following needs t
 2. mLab
     * We will be using [mLab](https://mlab.com/), an online database hosting service. Make and verify an account. From the main page, you can create a new database by clicking `+ Create new`. Follow the instructions for setting up your cloud services. When that's done, there will be a new row added to 'MongoDB Deployments'. Clicking this will take you to settings related to this DB. Under a tab labeled 'Users', make a username and password to use to access this DB. On this page, you will also see the URI we will use to connect to this database. It should look something like this:
          ```
-        mongodb://<dbuser>:<dbpassword>@ds151207.mlab.com:51207/<dbname>
+        mongodb://<dbuser>:<dbpassword><dbname>
         ```
 
 # Time to code!
