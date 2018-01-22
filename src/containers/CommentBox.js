@@ -9,9 +9,12 @@ class CommentBox extends React.Component{
 	}
 
 	componentDidMount() {
-		// fetch('http://localhost:3001/api/comments')
-		// .then(res => res.json())
-		// .then(comments => this.setState({comments}))
+		fetch('http://localhost:3001/api/comments')
+		.then(res => res.json())
+		.then(data => {
+			debugger
+			this.setState({comments: data.comments})
+		})
 	}
 
 	addComment = (comment) => {
@@ -31,7 +34,10 @@ class CommentBox extends React.Component{
 			body: JSON.stringify(newComment)
 		})
 		.then(res => res.json())
-		.then(data => this.setState({comments: [...this.state.comments, data.comment]}))
+		.then(data => {
+			debugger
+			this.setState({comments: [...this.state.comments, data.comment]})
+		})
 	}
 
 
@@ -47,6 +53,7 @@ class CommentBox extends React.Component{
 		})
 		.then(res => res.json())
 		.then(data => {
+			debugger
 			this.setState({comments: data.comments})
 		})
 	}

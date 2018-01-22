@@ -3,6 +3,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var Comment = require('./models/comments')
 require('dotenv').config()
 
 
@@ -19,7 +20,7 @@ var port = process.env.API_PORT || 3001;
 var username = process.env.DB_USER
 var password = process.env.DB_PASSWORD
 var dbName = process.env.DB_NAME
-mongoose.connect(`mongodb://${username}:${password}${dbName}`)
+mongoose.connect(`mongodb://${username}:${password}@${dbName}`)
 //mongodb://sbal13:fitness@ds151207.mlab.com:51207/mern-practice-sbal13
 
 
@@ -43,7 +44,54 @@ app.use((req, res, next) => {
 
 //BEGIN ROUTES/////////
 
+router.route('/')
+.get((request,response) => {
+	response.json({message: "Welcome to the Express Train"})
+})
+.post((req, res) => {
+	res.json({body: req.body})
+})
 
+router.route('/comments')
+.post((req,res) => {
+	let comment = new Comment()
+	comment.author = req.body.author
+	comment.text = req.body.text
+
+	comment.save((err) => {
+		if (err){
+			res.send(err)
+		} else {
+			res.send({comment})
+		}
+	})
+})
+.get((req, res) => {
+	Comment.find(null, (err,comments) => {
+		if (err) {
+			res.send(err)
+		} else {
+			res.json({comments})
+		}
+	})
+})
+
+router.route('/comments/:id')
+.delete((req,res) => {
+	Comment.findById(req.params.id, (err, comment) => {
+		if (err) {
+			res.send(err)
+		} else {
+			Comment.remove({_id: req.params.id}, (err) => {
+				if (err) {
+					res.send(err)
+				} else {
+					res.json({message: `Successfully deleted comment ${req.params.id}!`})
+				}
+			})
+		}
+	})
+})
 
 //END ROUTES/////////
 
