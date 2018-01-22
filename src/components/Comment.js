@@ -2,11 +2,7 @@ import React from 'react'
 import marked from 'marked'
 
 
-const Comment = ({author, text, children, id, editComment, deleteComment}) => {
-
-	const handleEdit = (event) => {
-		editComment({author, id})
-	}
+const Comment = ({author, text, children, id, deleteComment}) => {
 
 	const handleDelete = (event) => {
 		deleteComment(id)
@@ -14,7 +10,7 @@ const Comment = ({author, text, children, id, editComment, deleteComment}) => {
 
 	return (
 		<div>
-			<button onClick={handleEdit}>{author}</button>
+			<h5>{author}</h5>
 			<span>{text}</span>
 			<button onClick={handleDelete}>Delete</button>
 		</div>
