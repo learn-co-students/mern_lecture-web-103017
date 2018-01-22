@@ -1,10 +1,11 @@
 import React from 'react'
 import CommentForm from '../components/CommentForm'
 import CommentList from '../components/CommentList'
+import data from '../data/data'
 
 class CommentBox extends React.Component{
 	state = {
-		comments: 
+		comments: data
 	}
 
 	componentDidMount() {

@@ -9,9 +9,11 @@ const Comment = ({author, text, children, id, deleteComment}) => {
 	}
 
 	return (
-		<div>
-			<h5>{author}</h5>
-			<span>{text}</span>
+		<div style={{margin: "30px"}}>
+			<text><strong>{author}</strong></text>
+			<br/>
+			<text>{text}</text>
+			<br/>
 			<button onClick={handleDelete}>Delete</button>
 		</div>
 	)
