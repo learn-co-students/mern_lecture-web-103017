@@ -4,7 +4,12 @@ import Comment from './Comment'
 const CommentList = ({data, editComment, deleteComment}) => {
 	let comments = data.map(comment => {
  		return (
- 			<Comment author={ comment.author } text={comment.text} werewolf={comment.werewolf} id={comment['_id']} deleteComment={deleteComment} editComment={editComment}key={ comment['_id'] }/>
+ 			<Comment author={ comment.author } 
+ 					 text={comment.text} 
+ 					 id={comment['_id']} 
+ 					 deleteComment={deleteComment} 
+ 					 editComment={editComment}
+ 					 key={ comment['_id'] }/>
  		)
  	})
  	

@@ -2,10 +2,10 @@ import React from 'react'
 import marked from 'marked'
 
 
-const Comment = ({author, text, children, werewolf, id, editComment, deleteComment}) => {
+const Comment = ({author, text, children, id, editComment, deleteComment}) => {
 
 	const handleEdit = (event) => {
-		editComment({author, id, werewolf})
+		editComment({author, id})
 	}
 
 	const handleDelete = (event) => {
@@ -16,7 +16,7 @@ const Comment = ({author, text, children, werewolf, id, editComment, deleteComme
 		<div>
 			<button onClick={handleEdit}>{author}</button>
 			<span>{text}</span>
-			{author === "Werewolf" ? <button onClick={handleDelete}>Stake with silver!</button> : null}
+			<button onClick={handleDelete}>Delete</button>
 		</div>
 	)
 }
