@@ -22,7 +22,7 @@ var port = process.env.API_PORT || 3001;
 var username = process.env.DB_USER
 var password = process.env.DB_PASSWORD
 var dbName = process.env.DB_NAME
-mongoose.connect(`mongodb://${username}:${password}${dbName}`)
+mongoose.connect(`mongodb://${username}:${password}@${dbName}`)
 //mongodb://sbal13:fitness@ds151207.mlab.com:51207/mern-practice-sbal13
 
 
@@ -100,7 +100,9 @@ router.route('/comments')
 		 if (err){
 		 	res.send(err);
 		 } else {
+		 	console.log("before")
 		 	res.json(comments)
+		 	console.log("after")
 		 }
 	});
 })
@@ -158,7 +160,8 @@ router.route('/comments/:id')
 	})
 })
 .delete((req,res) => {
-	Comment.remove({_id: req.params.id}, (err,comment) => {
+	Comment.remove({_id: req.params.id}, (err) => {
+		console.log(comment)
 		if (err){
 			res.send(err)
 		} else {
