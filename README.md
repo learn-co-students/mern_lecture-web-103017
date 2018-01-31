@@ -32,26 +32,36 @@ After running `create-react-app` to build out your client, the following needs t
         * This folder should be added to your root directory. Here we will store JS files representing our models
       * `/Procfile`
         * Create this file in your root directory. In it, you will add the following lines:
-            ```
+        ```
             web: react-scripts start 
             api: nodemon server.js
-            ```
+        ```
         * The first line specifies what commands to run to boot the client, while the second specifies the commands to boot the API
         
       * `/server.js`
         * We will do most of our configuration and routing work in here. For now, create the file in your root directory and stay tuned to see what we'll be adding
       * `/package.json`
         * Under the key "scripts", make sure that the following lines are included
-            ```
+        ```
             "start": "react-scripts start",
             "start-dev": "nf start -p 3000",
-            ```
-
-2. mLab
-    * We will be using [mLab](https://mlab.com/), an online database hosting service. Make and verify an account. From the main page, you can create a new database by clicking `+ Create new`. Follow the instructions for setting up your cloud services. When that's done, there will be a new row added to 'MongoDB Deployments'. Clicking this will take you to settings related to this DB. Under a tab labeled 'Users', make a username and password to use to access this DB. On this page, you will also see the URI we will use to connect to this database. It should look something like this:
-         ```
-        mongodb://<dbuser>:<dbpassword>@<dbname>
         ```
+
+2. MongoDB
+  There are two ways to get started with Mongo: locally or remotely. Remote setup is a bit faster and easier, but eventually you may want to setup locally. Here's how to do both
+  
+    - mLab
+        * We will be using [mLab](https://mlab.com/), an online database hosting service. Make and verify an account. From the main page, you can create a new database by clicking `+ Create new`. Follow the instructions for setting up your cloud services. When that's done, there will be a new row added to 'MongoDB Deployments'. Clicking this will take you to settings related to this DB. Under a tab labeled 'Users', make a username and password to use to access this DB. On this page, you will also see the URI we will use to connect to this database. It should look something like this:
+            ```
+                    mongodb://<dbuser>:<dbpassword>@<dbname>
+            ```
+    - Local
+      * Most of the instructions for installing MongoDB using Homebrew are included [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition). Follow the guide and get `mongod` running. Once it's running, it should tell you your IP and the port it's listening on. Eventually, when we connect to Mongoose, you will use a string that looks like the following:
+
+        ```
+                mongodb://127.0.0.1:27017
+        ```
+
 
 
 
@@ -81,7 +91,7 @@ it up in your environment, or 3001 */
 var port = process.env.API_PORT || 3001;
 
 //Connect mongoose to your DB using the URI from mLab
-mongoose.connect('mongodb://<dbusername>:<dbuserpassword>@ds151207.mlab.com:51207/<dbname')
+mongoose.connect(/*Insert DB URI from DB setup above*/)
 
 /*Configure Express to use body-parser to parse request bodies in JSON. */
 app.use(bodyParser.urlencoded({ extended: true }));
