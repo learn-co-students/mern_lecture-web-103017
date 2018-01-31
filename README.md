@@ -58,12 +58,6 @@ After running `create-react-app` to build out your client, the following needs t
     - Local
       * Most of the instructions for installing MongoDB using Homebrew are included [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition). Follow the guide and get `mongod` running. Once it's running, it should tell you your IP and the port it's listening on. Eventually, when we connect to Mongoose, you will use a string that looks like the following:
 
-        ```
-                mongodb://127.0.0.1:27017
-        ```
-
-
-
 
 # Time to code!
 
