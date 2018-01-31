@@ -362,6 +362,7 @@ Closely read the above code. Mongoose has a ton of methods to interact with the 
 
 And there you have it: a basic RESTful API in Express and Mongo! Express, Mongo, and Mongoose each have a lot more to offer, and I heavily suggest reading through the documentation for each to get a better feel for the other bells and whistles each has to offer.
 
+
 # Final Notes
 
 This is far from an exhaustive guide; there's so much more than can be covered here. Insofar as other opportunities are concerned, I would definitely consider covering the following concepts in this stack:
