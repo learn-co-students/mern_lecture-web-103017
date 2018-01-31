@@ -381,7 +381,3 @@ This is far from an exhaustive guide; there's so much more than can be covered h
 3. Validations
 4. Authentication (I recommend BCrypt!)
 5. Sessions/JsonWebTokens(JWT)
-6. Local MongoDB configuration
-
-
-
