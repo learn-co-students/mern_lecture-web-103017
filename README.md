@@ -69,7 +69,7 @@ In your `server.js` files, copy and paste the following code:
 
 ``` javascript
 
-'user strict'
+'use strict'
 
 //Import dependencies
 var express = require('express');
@@ -268,8 +268,8 @@ Suppose we had a model that looked like the following:
    species: String,
    name: String,
    gender: String,
-   population: Number
-   extinct: Boolean,
+   population: Number,
+   extinct: Boolean
   });
 
 module.exports = mongoose.model('Animal', AnimalsSchema);
